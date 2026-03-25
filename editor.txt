@@ -1,0 +1,17 @@
+Recoding
+
+Write a function that:
+
+    Asks the user to input a word.
+    Asks the user to select an operation by entering one of the following:
+        lastChar
+        capitalize
+        deleteIndex
+
+Operations
+
+lastChar Returns the last character of the word.
+
+capitalize Returns the word with every letter capitalized.
+
+deleteIndex Prompts the user to input an index. Deletes the character at that index and returns the result. If the index is greater than or equal to the length of the word, display an error message and restart from the beginning.
