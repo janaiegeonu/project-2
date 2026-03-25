@@ -9,6 +9,13 @@ import (
 	"strings"
 )
 
+func Color(text string) string {
+	red := "\033[31m"
+	reset := "\033[0m"
+	text = red + text + reset
+	return text
+}
+
 func LastChar(text string) string {
 	return string(text[len(text)-1])
 }
@@ -43,7 +50,7 @@ top:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println("please input a word")
+			fmt.Println(Color("please input a word"))
 			fmt.Println()
 
 			continue
@@ -54,7 +61,7 @@ top:
 
 		if digits || punc {
 
-			fmt.Println("Error alphabetical format only")
+			fmt.Println(Color("Error alphabetical format only"))
 			fmt.Println()
 			continue
 		}
@@ -63,7 +70,7 @@ top:
 
 		break
 	}
-
+	fmt.Println()
 	fmt.Println("\t OPERATION FUNCTIONS⚙️⚙️")
 	fmt.Println()
 	fmt.Println("🔸(lastChar) ➡️   Returns the last character of the word.")
@@ -91,7 +98,7 @@ bottom:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println("Error.. Empty Operation")
+			fmt.Println(Color("Error.. Empty Operation"))
 			fmt.Println()
 			continue
 		}
@@ -109,7 +116,7 @@ bottom:
 			fmt.Println("(deleteIndex)⭐")
 			fmt.Println()
 		default:
-			fmt.Println("Error!! Operation Not Found")
+			fmt.Println(Color("Error!! Operation Not Found"))
 			fmt.Println()
 			continue
 
@@ -136,33 +143,33 @@ bottom:
 
 		for {
 
-			fmt.Print("INPUT A INDEX: ")
+			fmt.Print("🔸INPUT A INDEX: ")
 
 			input, _ := reader.ReadString('\n')
 			input = strings.TrimSpace(input)
 			input = strings.ReplaceAll(input, " ", "")
 
 			if input == "" {
-				fmt.Println("Error Input can't be EMPTY")
+				fmt.Println(Color("Error Input can't be EMPTY"))
 				fmt.Println()
 				continue
 			}
 
 			num, err := strconv.Atoi(input)
 			if err != nil {
-				fmt.Println("Index can't be in Alphabetical format")
+				fmt.Println(Color("Index can't be in Alphabetical format"))
 				fmt.Println()
 				continue
 			}
 
 			if num < 0 {
-				fmt.Println("Error!! index can't be less than zero")
+				fmt.Println(Color("Error!! index can't be less than zero"))
 				fmt.Println()
 				continue
 			}
 
 			if num > len(recode) {
-				fmt.Println("Error.. Index shouldn't be greater than the length of the string")
+				fmt.Println(Color("Error.. Index shouldn't be greater than the length of the string"))
 				fmt.Println()
 				continue
 			}
@@ -189,7 +196,7 @@ bottom:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println("please select an option")
+			fmt.Println(Color("please select an option"))
 			fmt.Println()
 
 			continue
@@ -206,7 +213,7 @@ bottom:
 			fmt.Println()
 
 		default:
-			fmt.Println("invalid option.. Choose between(YES/NO)")
+			fmt.Println(Color("invalid option.. Choose between(YES/NO)"))
 			fmt.Println()
 			continue
 
@@ -226,12 +233,12 @@ bottom:
 
 		for {
 
-			fmt.Print("ENTER YOUR OPTION NUMBER : ")
+			fmt.Print("🔸ENTER YOUR OPTION NUMBER : ")
 			input, _ := reader.ReadString('\n')
 			input = strings.TrimSpace(input)
 
 			if input == "" {
-				fmt.Println("please enter an option..")
+				fmt.Println(Color("please enter an option.."))
 				fmt.Println()
 				continue
 			}
@@ -246,6 +253,10 @@ bottom:
 				fmt.Println()
 				fmt.Println()
 				goto top
+
+			default:
+				fmt.Println(Color("Error invaild Option"))
+				fmt.Println()
 
 			}
 		}
